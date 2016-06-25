@@ -9,6 +9,7 @@ package com.eric4tw.pair2;
  * 
  */
 public class Rover {
+
 	private Position current;
 
 	public Rover(Position current) {

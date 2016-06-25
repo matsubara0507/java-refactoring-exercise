@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
 
 public class RoverTest {
+
 	@Test
 	public void turnsToWIfInstructionIsLAndDirectionIsN() {
 		Rover rover = new Rover(new Position(1, 1, Direction.NORTH));
