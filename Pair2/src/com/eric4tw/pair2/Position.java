@@ -58,4 +58,23 @@ public class Position {
 			return direction;
 	}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Position position = (Position) o;
+
+        if (cordinate != null ? !cordinate.equals(position.cordinate) : position.cordinate != null) return false;
+        if (direction != position.direction) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = cordinate != null ? cordinate.hashCode() : 0;
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        return result;
+    }
 }

@@ -21,4 +21,24 @@ public class Cordinate {
 		// TODO Auto-generated method stub
 		return x;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Cordinate cordinate = (Cordinate) o;
+
+		if (x != cordinate.x) return false;
+		if (y != cordinate.y) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = x;
+		result = 31 * result + y;
+		return result;
+	}
 }

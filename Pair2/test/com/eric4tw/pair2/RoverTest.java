@@ -1,19 +1,17 @@
 package com.eric4tw.pair2;
 
-import junit.framework.Assert;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
-import src.Direction;
+
 public class RoverTest {
 	@Test
 	public void turnsToWIfInstructionIsLAndDirectionIsN() {
-		
-		Rover rover = new Rover(new Position(1, 1,Direction.NORTH));
+		Rover rover = new Rover(new Position(1, 1, Direction.NORTH));
 		rover.command('L');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getY());
-		Assert.assertEquals('W', position.getDirection());
+        assertThat(position, is(new Position(1, 1, Direction.WEST)));
 	}
 
 	@Test
@@ -21,9 +19,7 @@ public class RoverTest {
 		Rover rover = new Rover(new Position(1, 1, Direction.SOUTH));
 		rover.command('L');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('E', position.getDirection());
+		assertThat(position, is(new Position(1, 1, Direction.EAST)));
 	}
 
 	@Test
@@ -31,9 +27,7 @@ public class RoverTest {
 		Rover rover = new Rover(new Position(1, 1, Direction.EAST));
 		rover.command('L');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('N', position.getDirection());
+        assertThat(position, is(new Position(1, 1, Direction.NORTH)));
 	}
 
 	@Test
@@ -41,9 +35,7 @@ public class RoverTest {
 		Rover rover = new Rover(new Position(1, 1, Direction.WEST));
 		rover.command('L');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('S', position.getDirection());
+        assertThat(position, is(new Position(1, 1, Direction.SOUTH)));
 	}
 
 	@Test
@@ -51,78 +43,62 @@ public class RoverTest {
 		Rover rover = new Rover(new Position(1, 1, Direction.NORTH));
 		rover.command('R');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('E', position.getDirection());
+        assertThat(position, is(new Position(1, 1, Direction.EAST)));
 	}
 
 	@Test
 	public void turnsToWIfInstructionIsRAndDirectionIsS() {
-		Rover rover = new Rover(new Position(1, 1,Direction.SOUTH));
+		Rover rover = new Rover(new Position(1, 1, Direction.SOUTH));
 		rover.command('R');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('W', position.getDirection());
+        assertThat(position, is(new Position(1, 1, Direction.WEST)));
 	}
 
 	@Test
 	public void turnsToSIfInstructionIsRAndDirectionIsE() {
-		Rover rover = new Rover(new Position(1, 1,Direction.EAST));
+		Rover rover = new Rover(new Position(1, 1, Direction.EAST));
 		rover.command('R');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('S', position.getDirection());
+        assertThat(position, is(new Position(1, 1, Direction.SOUTH)));
 	}
 
 	@Test
 	public void turnsToNIfInstructionIsRAndDirectionIsW() {
-		Rover rover = new Rover(new Position(1, 1,Direction.WEST));
+		Rover rover = new Rover(new Position(1, 1, Direction.WEST));
 		rover.command('R');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('N', position.getDirection());
+        assertThat(position, is(new Position(1, 1, Direction.NORTH)));
 	}
 
 	@Test
 	public void movesInYIfInstructionIsMAndDirectionIsN() {
-		Rover rover = new Rover(new Position(1, 1, 'N'));
+		Rover rover = new Rover(new Position(1, 1, Direction.NORTH));
 		rover.command('M');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(2, position.getX());
-		Assert.assertEquals('N', position.getDirection());
+        assertThat(position, is(new Position(1, 2, Direction.NORTH)));
 	}
 
 	@Test
 	public void movesInXIfInstructionIsMAndDirectionIsE() {
-		Rover rover = new Rover(new Position(1, 1, 'E'));
+		Rover rover = new Rover(new Position(1, 1, Direction.EAST));
 		rover.command('M');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(2, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('E', position.getDirection());
+        assertThat(position, is(new Position(2, 1, Direction.EAST)));
 	}
 
 	@Test
 	public void movesInReverseYIfInstructionIsMAndDirectionIsS() {
-		Rover rover = new Rover(new Position(1, 1, 'S'));
+		Rover rover = new Rover(new Position(1, 1, Direction.SOUTH));
 		rover.command('M');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals(0, position.getX());
-		Assert.assertEquals('S', position.getDirection());
+        assertThat(position, is(new Position(1, 0, Direction.SOUTH)));
 	}
 
 	@Test
 	public void movesInReverseXIfInstructionIsMAndDirectionIsW() {
-		Rover rover = new Rover(new Position(1, 1, 'W'));
+		Rover rover = new Rover(new Position(1, 1, Direction.WEST));
 		rover.command('M');
 		Position position = rover.getCurrent();
-		Assert.assertEquals(0, position.getX());
-		Assert.assertEquals(1, position.getX());
-		Assert.assertEquals('W', position.getDirection());
+        assertThat(position, is(new Position(0, 1, Direction.WEST)));
 	}
 }
