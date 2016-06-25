@@ -1,18 +1,18 @@
 package com.eric4tw.pair2;
 
-public class Cordinate {
+public class Coordinate {
 
 	private int x;
 	private int y;
 
-	public Cordinate(int aX, int aY) {
+	public Coordinate(int aX, int aY) {
 		x = aX;
 		y = aY;
 	}
 	
-	public  void  add(Cordinate cordinate){
-		x += cordinate.x;
-		y += cordinate.y;
+	public  void  add(Coordinate coordinate){
+		x += coordinate.x;
+		y += coordinate.y;
 	}
 
 	private int getY() {
@@ -28,10 +28,10 @@ public class Cordinate {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		Cordinate cordinate = (Cordinate) o;
+		Coordinate coordinate = (Coordinate) o;
 
-		if (x != cordinate.x) return false;
-		if (y != cordinate.y) return false;
+		if (x != coordinate.x) return false;
+		if (y != coordinate.y) return false;
 
 		return true;
 	}

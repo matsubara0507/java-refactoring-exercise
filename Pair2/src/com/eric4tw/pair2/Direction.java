@@ -11,8 +11,8 @@ public enum Direction {
             return Direction.SOUTH;
         }
 
-        public Cordinate moveAhead() {
-            return new Cordinate(1, 0);
+        public Coordinate moveAhead() {
+            return new Coordinate(1, 0);
         }
     },
 
@@ -25,8 +25,8 @@ public enum Direction {
             return Direction.NORTH;
         }
 
-        public Cordinate moveAhead() {
-            return new Cordinate(-1, 0);
+        public Coordinate moveAhead() {
+            return new Coordinate(-1, 0);
         }
     },
 
@@ -39,8 +39,8 @@ public enum Direction {
             return Direction.EAST;
         }
 
-        public Cordinate moveAhead() {
-            return new Cordinate(0, 1);
+        public Coordinate moveAhead() {
+            return new Coordinate(0, 1);
         }
     },
 
@@ -53,8 +53,8 @@ public enum Direction {
             return Direction.WEST;
         }
 
-        public Cordinate moveAhead() {
-            return new Cordinate(0, -1);
+        public Coordinate moveAhead() {
+            return new Coordinate(0, -1);
         }
     };
 
@@ -62,6 +62,6 @@ public enum Direction {
 
     public abstract Direction turnRight();
 
-    public abstract Cordinate moveAhead();
+    public abstract Coordinate moveAhead();
 
 }

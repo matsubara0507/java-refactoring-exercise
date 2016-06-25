@@ -6,11 +6,11 @@ public class Position {
 	private static final char RIGHT = 'R';
 	private static final char LEFT = 'L';
 
-	private Cordinate cordinate;
+	private Coordinate coordinate;
 	private Direction direction;
 
 	public Position(int aX, int aY, Direction direction) {
-		cordinate = new Cordinate(aX,aY);
+		coordinate = new Coordinate(aX,aY);
 		this.direction = direction;
 	}
 
@@ -31,7 +31,7 @@ public class Position {
 	}
 
 	public void moveAhead() {
-		cordinate.add(direction.moveAhead());
+		coordinate.add(direction.moveAhead());
 	}
 
 	public void turnRight() {
@@ -53,7 +53,7 @@ public class Position {
 
         Position position = (Position) o;
 
-        if (cordinate != null ? !cordinate.equals(position.cordinate) : position.cordinate != null) return false;
+        if (coordinate != null ? !coordinate.equals(position.coordinate) : position.coordinate != null) return false;
         if (direction != position.direction) return false;
 
         return true;
@@ -61,7 +61,7 @@ public class Position {
 
     @Override
     public int hashCode() {
-        int result = cordinate != null ? cordinate.hashCode() : 0;
+        int result = coordinate != null ? coordinate.hashCode() : 0;
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
     }
