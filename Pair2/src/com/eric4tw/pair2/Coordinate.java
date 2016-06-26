@@ -10,9 +10,8 @@ public class Coordinate {
 		y = aY;
 	}
 	
-	public  void  add(Coordinate coordinate){
-		x += coordinate.x;
-		y += coordinate.y;
+	public Coordinate add(Coordinate coordinate){
+		return new Coordinate(this.x + coordinate.x, this.y + coordinate.y);
 	}
 
 	private int getY() {

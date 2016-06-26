@@ -31,7 +31,7 @@ public class Position {
 	}
 
 	public void moveAhead() {
-		coordinate.add(direction.moveAhead());
+		coordinate = coordinate.add(direction.moveAhead());
 	}
 
 	public void turnRight() {
