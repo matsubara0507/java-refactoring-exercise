@@ -17,7 +17,7 @@ public class Rover {
 	}
 
 	public void command(char instruction) {
-		current.move(instruction);
+		current = Command.command(instruction, current);
 	}
 
 	public Position getCurrent() {
