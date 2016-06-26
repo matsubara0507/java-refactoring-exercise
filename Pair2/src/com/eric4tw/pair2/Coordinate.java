@@ -14,11 +14,11 @@ public class Coordinate {
 		return new Coordinate(this.x + coordinate.x, this.y + coordinate.y);
 	}
 
-	private int getY() {
+	public int getY() {
 		return y;
 	}
 
-	private int getX() {
+	public int getX() {
 		return x;
 	}
 

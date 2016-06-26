@@ -4,19 +4,19 @@ public enum Command {
 
     LEFT('L') {
         public Position run(Position position) {
-            return position.turnLeft();
+            return position.changeDirection(Direction::turnLeft);
         }
     },
 
     RIGHT('R') {
         public Position run(Position position) {
-            return position.turnRight();
+            return position.changeDirection(Direction::turnRight);
         }
     },
 
     MOVE('M') {
         public Position run(Position position) {
-            return position.moveAhead();
+            return position.addCoordinate(position.getDirection().changeRelative(new Coordinate(0, 1)));
         }
     };
 

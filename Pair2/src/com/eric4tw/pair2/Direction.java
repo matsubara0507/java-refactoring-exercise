@@ -11,8 +11,12 @@ public enum Direction {
             return Direction.SOUTH;
         }
 
-        public Coordinate moveAhead() {
-            return new Coordinate(1, 0);
+        public Direction halfTurn() {
+            return Direction.WEST;
+        }
+
+        public Coordinate changeRelative(Coordinate coordinate) {
+            return new Coordinate(coordinate.getY(), coordinate.getX());
         }
     },
 
@@ -25,8 +29,12 @@ public enum Direction {
             return Direction.NORTH;
         }
 
-        public Coordinate moveAhead() {
-            return new Coordinate(-1, 0);
+        public Direction halfTurn() {
+            return Direction.EAST;
+        }
+
+        public Coordinate changeRelative(Coordinate coordinate) {
+            return new Coordinate(-coordinate.getY(), coordinate.getX());
         }
     },
 
@@ -39,8 +47,12 @@ public enum Direction {
             return Direction.EAST;
         }
 
-        public Coordinate moveAhead() {
-            return new Coordinate(0, 1);
+        public Direction halfTurn() {
+            return Direction.SOUTH;
+        }
+
+        public Coordinate changeRelative(Coordinate coordinate) {
+            return coordinate;
         }
     },
 
@@ -53,8 +65,12 @@ public enum Direction {
             return Direction.WEST;
         }
 
-        public Coordinate moveAhead() {
-            return new Coordinate(0, -1);
+        public Direction halfTurn() {
+            return Direction.NORTH;
+        }
+
+        public Coordinate changeRelative(Coordinate coordinate) {
+            return new Coordinate(-coordinate.getX(), -coordinate.getY());
         }
     };
 
@@ -62,6 +78,8 @@ public enum Direction {
 
     public abstract Direction turnRight();
 
-    public abstract Coordinate moveAhead();
+    public abstract Direction halfTurn();
+
+    public abstract Coordinate changeRelative(Coordinate coordinate);
 
 }

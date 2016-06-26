@@ -1,5 +1,7 @@
 package com.eric4tw.pair2;
 
+import java.util.function.UnaryOperator;
+
 public class Position {
 	
 	private Coordinate coordinate;
@@ -15,19 +17,15 @@ public class Position {
         this.direction = direction;
     }
 
-    public Position moveAhead() {
-		return new Position(coordinate.add(direction.moveAhead()), direction);
-	}
+    public Position addCoordinate(Coordinate coordinate) {
+        return new Position(this.coordinate.add(coordinate), direction);
+    }
 
-	public Position turnRight() {
-		return new Position(coordinate, direction.turnRight());
-	}
+    public Position changeDirection(UnaryOperator<Direction> op) {
+        return new Position(coordinate, op.apply(direction));
+    }
 
-	public Position turnLeft() {
-        return new Position(coordinate, direction.turnLeft());
-	}
-
-	public Object getDirection() {
+	public Direction getDirection() {
 		return direction;
 	}
 
